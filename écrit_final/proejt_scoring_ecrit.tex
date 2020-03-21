@@ -1,0 +1,311 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                	%permet de régler des marges 	
+
+\usepackage{graphicx}		% package pour travailler sur des images
+\geometry{top=1.22cm, bottom=2.2cm, left=1.7cm , right=1.7cm}     %Réxgler les marges
+\usepackage{fancyhdr}   % en têtes et pied de pages personnalisés 
+\pagestyle{fancy}             %SetFonts
+
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\rightmark}
+
+
+
+
+\usepackage{amsmath,amssymb,amsthm}  %packages maths    amsthm: théorèmes
+\usepackage[fleqn]{mathtools}
+\usepackage[frenchb]{babel}  %accents    écrire doc en français 
+\usepackage[francais]{babel}
+
+%\usepackage[thmmarks,amsmath]{ntheorem}
+\usepackage{bbm}
+\usepackage{dsfont}
+\usepackage{thmtools}   % theoreme 
+\usepackage[unq]{unique}
+\usepackage{mathrsfs}
+
+
+\usepackage[T1]{fontenc}
+\usepackage{float} %gestion positionnement de l'image sur la feuille 
+\usepackage{graphicx}     %gestion insertion d'images \usepackage{setspace}
+\usepackage{abstract}
+\usepackage{subfig}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\usepackage{caption}
+\usepackage{lipsum}
+
+
+%SetFonts
+\def\restriction#1#2{\mathchoice
+              {\setbox1\hbox{${\displaystyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\textstyle #1}_{\scriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}
+              {\setbox1\hbox{${\scriptscriptstyle #1}_{\scriptscriptstyle #2}$}
+              \restrictionaux{#1}{#2}}}
+\def\restrictionaux#1#2{{#1\,\smash{\vrule height .8\ht1 depth .85\dp1}}_{\,#2}} 
+
+%\bibliographystyle{plain}
+
+
+\newtheorem{theo}{Théorème}[section]
+% \theoremstyle{definition} pour enlever italique 
+\newtheorem{definition}{Définition}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{pro}{Propriété}[section]
+\newtheorem{cor}{Corollaire}[section]
+\newtheorem{lem}{Lemme}[section]							% TeX will automatically convert eps --> pdf in pdflatex	
+
+\declaretheorem[title=Théorème, style=break, shaded]{theor}  
+
+\DeclareMathOperator{\sinc}{sinc}  %pour le sinus cardinal
+\DeclareMathOperator\supp{supp}
+
+
+\usepackage{amssymb}
+
+
+%%%%%%%%%%%%%%%%%%%%  RACCOURCIS %%%%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\EE}{\mathbb{E}}
+\renewcommand{\inf}{\infty}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\Lra}{\Leftrightarrow}
+%SetFonts
+
+
+%ecriture algo 
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+ \lstset{style=mystyle}
+
+
+
+% \usepackage{listings} % to inlude R code with \begin{lstlisting}[language=R] etc.
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{backgroundCol}{rgb}{.97, .97, .97}   %couleur définie pour le fond
+\definecolor{commentstyleCol}{rgb}{0.678,0.584,0.686}  %couleur définie pour les commentaires
+\definecolor{keywordstyleCol}{rgb}{0.737,0.353,0.396}  %couleur définie pour les mots clés
+\definecolor{stringstyleCol}{rgb}{0.192,0.494,0.8} %couleur définie pour les chaines de caracteres
+\definecolor{NumCol}{rgb}{0.686,0.059,0.569} 
+\definecolor{basicstyleCol}{rgb}{0.345, 0.345, 0.345} % couleur définie de base      
+\lstset{ 
+  language=R,                     % language du code 
+  basicstyle=\small  \ttfamily \color{basicstyleCol}, % taille de la police 
+  numbers=left,                   % pour mettre les numeros de lignes, à commenter si t'utilises pas
+ numberstyle=\tiny\color{green},  % style utilisé pour les numeros des lignes 
+  stepnumber=2,                   % ecart entre chaque num: 1: numerote toutes les lignes 
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{backgroundCol},  % choisir le style de fond utilise \usepackage{color}
+  showspaces=false,               % pour montrer les espaces
+  showstringspaces=false,         % montrer les espaces des chaines de caracteres
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  %frame=single,                   % ajouter un cadre autour du code 
+  %rulecolor=\color{white},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  keywordstyle=\color{keywordstyleCol},      % les couleurs/style des mots clés
+  commentstyle=\color{commentstyleCol},   % style des commentaires (couleurs)
+  stringstyle=\color{stringstyleCol},      % style des chaines de caracteres
+  literate=%
+   *{0}{{{\color{NumCol}0}}}1
+    {1}{{{\color{NumCol}1}}}1
+    {2}{{{\color{NumCol}2}}}1
+    {3}{{{\color{NumCol}3}}}1
+    {4}{{{\color{NumCol}4}}}1
+    {5}{{{\color{NumCol}5}}}1
+    {6}{{{\color{NumCol}6}}}1
+    {7}{{{\color{NumCol}7}}}1
+    {8}{{{\color{NumCol}8}}}1
+    {9}{{{\color{NumCol}9}}}1
+} 
+
+
+
+\title{Projet}
+\author{Nadia GHERNAOUT \\ Philippine RENAUDIN}
+\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\section{Introduction}
+
+%rajouter histoire du scoring 
+
+Le but est d'affecter un \textit{score} à un individu par rapport à son comportement en comparaison au comportement général d'un panel. Ce score sert ensuite de critère de classification : l'individu sera affecté à un groupe en fonction de celui-ci. 
+\paragraph{Exemples d'applications:}
+\begin{enumerate}
+\item risque médical: prédire si le patient présente des prédispositions à développer une certaine maladie
+\item risque financier: prédire la bonne ou mauvaise santé d'une entreprise 
+\end{enumerate}
+Un score peut également être définit comme un outil statistique ou probabiliste de détection de risque. 
+Plusieurs méthodes permettent de construire un score :
+\begin{itemize}
+\item La régression logistique
+\item L'analyse factorielle discriminante 
+\end{itemize}
+
+\section{Régression logistique}
+\subsection{Introduction}
+La Régression logistique consiste à expliquer une variable $Y$ (variable cible), par une ou plusieurs variables explicatives.  \\
+
+%mettre histoire de esperance conditionnelle 
+
+Dans ce projet on se concentre au cas où la variable à expliquer est binaire. \\
+Quand le nombre de modalités de la variable à expliquer est supérieur à 2 on parle de régression logistique \textit{polytomique} (scrutin à plus de deux candidats, degrés de satisfaction pour un produit, mention à un examen...) 
+Les avantages de cette méthode sont qu'il n'y a pas besoin d'hypothèses de multinormalité.
+Dans la régression logistique 
+
+\[  \mathbb{P} (G1|x) = \PP(Y=1|X=x) = \pi(x) = \dfrac{e^{\beta_0 + \beta_1x_1 + \cdots + \beta_px_p}}{1 + e^{\beta_0 + \beta_1 x_1 + \cdots + \beta_px_p}} \]
+
+On note: $ \beta = \begin{pmatrix}
+\beta_1 \\ \beta_2 \\ \vdots \\ \beta_p \end{pmatrix}$ et $x = \begin{pmatrix}
+x_1 \\ x_2 \\ \vdots \\ x_p
+\end{pmatrix}
+
+\[ \pi(x) = \dfrac{e^{\beta_0 + \beta x }}{1 + e^{\beta_0 + \beta x}} \]
+
+La fonction $ \pi(x)$ est appelée \textit{fonction logistique}. Sa représentation graphique est une sigmoïde en fonction des modalités de $x$. La fonction $\pi(x)$ est comprise dans $[0,1]$, elle convient donc à une probabilité et donne souvent une bonne représentation des phénomènes.
+
+On cherche à écrire l'espérance conditionnelle de la variable à expliquer $Y$ comme combinaison linéaire de variables à expliquer $X$.
+On veut modéliser l'espérance conditionnelle $\EE [Y |X=x]$.\\
+On cherche la valeur moyenne de $Y$ pour toute valeurs de $X$.
+
+\[ logit(\pi(x)) =\ln \left( \dfrac{\pi(x)}{1-\pi(x) \right) = \beta_0 + \beta_1 + \cdots + \beta_px_p }\]
+Utilisée avec la fonction de logarithme néperien, logit est la réciproqie de $f(x) = \dfrac{1}{1 + e^{-x}}$ qui est utilisée pour linéariser les fonctions logistiques. 
+
+
+
+\begin{lstlisting}[langage = R]
+#librairies
+library(ROCR)
+library(ggplot2)
+library(GGally)
+library(forestmodel)
+library(effects)
+library(ggeffects)
+library(boot)
+library(corrplot)
+library(dplyr)
+library(devtools)
+library(caTools)  
+
+#fichier
+diabete = read.table('/Users/Nadia/Documents/Maths/DATA_SCIENCES/PROJET_SCORING/diabetes.csv', header = TRUE, sep= ',')
+
+attach(diabete)
+
+#Colonnes supp
+Breaks_age = c(min(Age),24,29,41, max(Age)
+Breaks_preg = c(0,1,3,6, max(Pregnancies))
+
+diabete$Age_classe = cut(Age, breaks = Breaks_age, include.lowest = TRUE)
+diabete$Pregnancies_classe = cut(Pregnancies, breaks = Breaks_preg, include.lowest = TRUE)
+diabete$sqrtInsulin = (sqrt(Insulin)-1)*2
+  #boxcox
+# diabete$logInsulin = log(Insulin) pose probleme, les valeurs nulles
+
+diabete
+summary(diabete)
+
+diabete[,9] <- factor(diabete[,9])
+str(diabete)    # 0: pas de diabete, 1: diabete 
+
+
+db_cor <- round(cor(diabete[1:8]),1)
+
+corrplot(db_cor)   #pas beaucoup de correlation entre les variables 
+N = 1000
+mod_ret = rep(0,N)
+
+scores_A = rep(0,10)
+
+
+for (k in 1:N){
+  sample = sample.split(Outcome, SplitRatio = 0.8)
+  train = subset(diabete, sample == TRUE)
+  test = subset(diabete, sample == FALSE) 
+  
+  modele_1 = glm(Outcome ~ . - Age_classe - sqrtInsulin - Pregnancies_classe , data = train, family = binomial(link = "logit"))   
+  modele_2 = glm(Outcome ~ . -Insulin - Age_classe - Pregnancies_classe , data = train, family=binomial(link="logit")) 
+  modele_3 = glm(Outcome ~ Pregnancies + Glucose + BMI + DiabetesPedigreeFunction + BloodPressure + Age, data = train, family = binomial(link = "logit"))
+  modele_4 = glm(Outcome ~  Glucose + BMI + DiabetesPedigreeFunction , data = train, family = binomial(link = "logit"))
+  modele_5 = glm(Outcome ~  Glucose + BMI + DiabetesPedigreeFunction + BloodPressure + Pregnancies, data = train, family = binomial(link = "logit")) 
+  modele_6 = glm(Outcome ~  Glucose + BMI + DiabetesPedigreeFunction + BloodPressure + Age, data = train, family = binomial(link = "logit")) 
+  modele_7 = glm(Outcome ~  . - Age - sqrtInsulin - Pregnancies_classe , data = train, family = binomial(link = "logit"))  #modele complet avec les classes d'âge
+  modele_8 = glm(Outcome ~  Glucose + BMI + DiabetesPedigreeFunction + BloodPressure + Age_classe, data = train, family = binomial(link = "logit")) 
+  modele_9 = glm(Outcome ~  Glucose + BMI + DiabetesPedigreeFunction + Age_classe, data = train, family = binomial(link = "logit")) 
+  modele_10 = glm(Outcome ~  Glucose + BMI + DiabetesPedigreeFunction + BloodPressure + Pregnancies_classe, data = train, family = binomial(link = "logit"))  
+  
+  liste_modeles = list(modele_1, modele_2, modele_3, modele_4, modele_5, modele_6, modele_7, modele_8, modele_9, modele_10)
+  n = length(liste_modeles)
+  erreur = 1
+  j = 0           #numéro du modèle retenu
+  A = matrix(0, nrow = 2, ncol=n)
+  A[1,]= 1:n
+  
+  for (i in 1:n){
+    outcome.pred = predict(liste_modeles[[i]], newdata=test, type="response")  #rend un score
+    erreur_pred = prop.table(table(outcome.pred>0.3, test$Outcome))[3]   #rend le taux de faux negatifs
+    A[2,i] = erreur_pred
+#    if (erreur_pred<erreur){  #on cherche à minimiser les faux négatifs 
+    #  erreur<-erreur_pred  
+    #  j = as.integer(i) #modele i retenu
+     # } 
+  }
+  A_tri = A[,order(A[2,], decreasing = FALSE)]
+  for (i in 1:n){ 
+    scores_A[A_tri[1,i]] = scores_A[A_tri[1,i]] + (11-i)}
+ #mod_ret[k]=j
+}
+scores_A
+#attribuer des scores: matrice deux lignes, une avec les modeles une avec les scores 
+
+res = as.data.frame(prop.table(table(mod_ret))); res
+max_occ = which.max(res$Freq)
+cat("Le modèle à retenir est le modèle", max_occ)
+
+"Modèle final"
+
+Reg_fin = glm(Outcome ~  Glucose + BMI + DiabetesPedigreeFunction + BloodPressure + Age_classe, data = diabete, family = binomial(link = "logit"))
+outcome_pred = rep(0,dim(diabete)[1])     #vecteur de 0  
+
+for (i in 1: dim(diabete)[1]){
+  if (Reg_fin$fitted.values[i] >=0.3){
+    outcome_pred[i] = 1
+  }   #ce qu'on a prédit 
+}
+score_pred = filter(data.frame(Reg_fin$fitted.values, outcome_pred), outcome_pred == "1")  #score predit, ceuw qu'on a predit comme étant malades
+score = filter(data.frame(Reg_fin$fitted.values, diabete$Outcome), diabete$Outcome == "1")  #vrai score, ceux qui sont 
+score_1 = filter(data.frame(Reg_fin$fitted.values, diabete$Outcome), diabete$Outcome == "1")  #vrai score, ceux qui sont 
+score_0 = filter(data.frame(Reg_fin$fitted.values, diabete$Outcome), diabete$Outcome == "0")  #vrai score, ceux qui sont 
+
+
+hgA = hist(score_pred$Reg_fin.fitted.values, breaks=10, plot=F)   
+hgB1 = hist(score_1$Reg_fin.fitted.values, breaks=20, plot=F)
+hgB2 = hist(score_0$Reg_fin.fitted.values, breaks=20, plot=F)
+
+
+col_1 = rgb(1,0,0,0.5)
+col_2 = rgb(0,0,1,0.5)
+
+plot(hgB1, col= col_1, freq=FALSE, xlim=c(0,1), ylim= c(0,3))
+plot(hgB2, col=col_2, freq=FALSE, xlim=c(0,1), add=T)
+lines(density(score_0$Reg_fin.fitted.values), lwd=1.5)
+lines(density(score_1$Reg_fin.fitted.values), lwd=1.5)
+
+\end{lstlisting}
+
+\section{Scoring}
+\end{document}
