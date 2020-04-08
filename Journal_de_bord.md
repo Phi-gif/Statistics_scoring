@@ -5,12 +5,12 @@
 - Plan suggéré : 
 I-Introduction (qu'est-ce que le scoring) --> cf intro phi
 II- ACP et AFD sur farms
-  1. Théorie AFD (phi)
-  2. Etude préliminaire : ACP (nad)
-  3. AFD farms (phi --> fichier AFD_farms_phi)
+  a. Théorie AFD (phi)
+  b. Etude préliminaire : ACP (nad)
+  c. AFD farms (phi --> fichier AFD_farms_phi)
  III- Régression logistique
-  1. Théorie (nad et phi)
-  2. Régression logistique farms (phi et nad, pgi --> fichier reg_log_farms_phi)
-  3. Régression logistique diabète (phi et nad)
+  a. Théorie (nad et phi)
+  b. Régression logistique farms (phi et nad, pgi --> fichier reg_log_farms_phi)
+  c. Régression logistique diabète (phi et nad)
   
   Et une petite conclusion sur les méthodes utilisées (avantage, désavantage, conséquence ici, etc)
