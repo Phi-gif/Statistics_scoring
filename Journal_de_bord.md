@@ -18,7 +18,7 @@ II- ACP et AFD sur farms
  
   a. Théorie (nad et phi)
   
-  b. Régression logistique farms (phi et nad, pgi --> fichier reg_log_farms_phi)
+  b. Régression logistique farms (phi et nad, phi --> fichier reg_log_farms_phi)
   
   c. Régression logistique diabète (phi et nad)
   
